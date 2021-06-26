@@ -1,0 +1,128 @@
+@import url("https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@700&family=Lexend+Deca&display=swap");
+/* Heading font-family: 'Big Shoulders Display', cursive; */
+/* Paras and buttons font-family: 'Lexend Deca', sans-serif; */
+:root {
+  --sedan: hsl(31, 77%, 52%);
+  --suv: hsl(184, 100%, 22%);
+  --lux: hsl(179, 100%, 13%);
+  --bgcolor: hsl(0, 0%, 95%);
+  --txcolor: hsla(0, 0%, 100%, 0.75);
+}
+* {
+  box-sizing: border-box;
+}
+body {
+  margin: 0;
+  padding: 0;
+  background-color: var(--bgcolor);
+  font-size: 15px;
+}
+/* Helps in centering and coloring */
+.full-screen-container {
+  background-color: var(--bgcolor);
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+/* The container with the three columns */
+.container {
+  max-width: 70%;
+  display: grid;
+  grid-template-rows: 1fr;
+  grid-template-columns: 1fr 1fr 1fr;
+  border-radius: 1em;
+}
+/* Each column is a car so applygin some common styles here */
+.car {
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: 1fr 1fr 40% 1fr;
+  padding: 0.5em 0.5em;
+  justify-items: start;
+  align-items: center;
+  padding-left: 3.5em;
+  padding-top: 1em;
+  padding-bottom: 1em;
+  z-index: 1;
+}
+/* Each column has a header  */
+.car header {
+  color: var(--bgcolor);
+  font-family: "Big Shoulders Display", cursive;
+  font-weight: 700;
+  font-size: 2rem;
+  margin-bottom: 1em;
+  text-transform: uppercase;
+}
+/* Each column has a paragraph  */
+.car p {
+  font-family: "Lexend Deca", sans-serif;
+  font-weight: 400;
+  color: var(--txcolor);
+  width: 75%;
+  margin-bottom: 4em;
+  line-height: 1.7em;
+}
+/* Each column has a button so using <a> tag and applying the common styles here*/
+.car a {
+  text-decoration: none;
+  font-family: "Lexend Deca", sans-serif;
+  font-weight: 400;
+  padding: 0.7em 1.5em;
+  background-color: var(--bgcolor);
+  border: 0.2em solid var(--bgcolor);
+  border-radius: 100px;
+  z-index: 2;
+  transition: 0.2s all ease-out;
+}
+/* The hover effect required for active state */
+.car a:hover,
+a:active {
+  background-color: transparent;
+  color: var(--bgcolor);
+}
+/* Unique colors and styles to apply for each column */
+.sedan {
+  background-color: var(--sedan);
+  border-top-left-radius: 10px;
+  border-bottom-left-radius: 10px;
+}
+.sedan a {
+  color: var(--sedan);
+}
+.suv {
+  background-color: var(--suv);
+}
+.suv a {
+  color: var(--suv);
+}
+.luxury {
+  background-color: var(--lux);
+  border-top-right-radius: 10px;
+  border-bottom-right-radius: 10px;
+}
+.luxury a {
+  color: var(--lux);
+}
+/* Media query for mobile devices and some changes for the border radii */
+@media (max-width: 1000px) {
+  .container {
+    height: 96vh;
+    margin: auto auto;
+    grid-template-rows: 1fr 1fr 1fr;
+    grid-template-columns: 1fr;
+  }
+  .sedan {
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    border-bottom-left-radius: 0px;
+  }
+  .luxury {
+    background-color: var(--lux);
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+    border-top-right-radius: 0px;
+  }
+}
